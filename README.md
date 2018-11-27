@@ -15,7 +15,7 @@ Face detection on Android using dlib and opencv.
 ## Sample
 ![](https://raw.githubusercontent.com/lightweh/FaceDetection/master/sample/demo.gif)
 
-## Contact:
+## Contact
 [https://www.cnblogs.com/lightweh/](https://www.cnblogs.com/lightweh/)
 
 ## License
