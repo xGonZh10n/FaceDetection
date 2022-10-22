@@ -1,5 +1,40 @@
 apply plugin: 'com.android.library'
+apply from: 'https://raw.githubusercontent.com/CKS-ROC/Useful_Gradle/master/version.gradle'
+def version = this.ext.default_version()
+this.project.version = version.versionName
 
+this.project.group = 'com.github.xGonZh10n'
+this.description = this.project.name
+this.archivesBaseName = 'opencv_face_detect'
+ext {
+//    maven_properties_file = "properties_file path"
+//    maven_repo_name = 'XXXX'
+//    Sonatype_NexusUrl_Url="Nexus Url"+maven_repo_name
+
+    isToRemoteRepo =true
+    isToInternalRepo = true
+    isToMavenLocal = true
+    isToGit = false
+    isSonatype_Nexus = true
+
+    mavPublishToInternalRepo = true
+    mavRepoInternalUrl = "path/to/internal/repo"
+
+    //FIXME library POM  please modify those
+    scmUrl = 'https://github.com/xGonZh10n/FaceDetection'
+// project git
+    developerid = 'xGonZh10n'
+    developername = 'xGonZh10n'
+    developeremail = 'hncl18@gmail.com'
+    scmConnectionUrl = 'https://github.com/xGonZh10n'
+    scmDeveloperConnectionUrl = 'https://github.com/xGonZh10n'
+
+    mavDevelopers = ["xGonZh10n": "hncl18@gmail.com"]
+    mavSiteUrl = "https://github.com/xGonZh10n/FaceDetection"
+    mavGitUrl = mavSiteUrl + '.git'
+    mavLibraryLicenses = ["Apache-2.0": 'http://www.apache.org/licenses/LICENSE-2.0.txt']
+    mavLibraryDescription = "opencv face detector"
+}
 android {
     compileSdkVersion 32
     //TODO the NDK must pass build must set spec ndkVersion , can not over 21.X.XXXXXXX
@@ -7,8 +42,8 @@ android {
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 32
-        versionCode 1
-        versionName "1.0"
+        versionCode version.versionCode.toInteger()
+        versionName version.versionName
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         externalNativeBuild {
             cmake {
@@ -40,4 +75,32 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.annotation:annotation:1.5.0'
+}
+
+apply from: 'https://raw.githubusercontent.com/CMingTseng/Useful_Gradle/master/install.gradle'
+
+task increaseVersion {
+    group "version Tasks"
+    doLast {
+        this.project.ext.increaseVersion("")
+    }
+}
+
+task increaseHotfixVersion {
+    group "version Tasks"
+    doLast {
+        this.project.ext.increaseHotfixVersion("")
+    }
+}
+
+task decreaseVersion {
+    group "version Tasks"
+    doLast {
+        this.project.ext.decreaseVersion("")
+    }
+}
+
+task showCurrentVersion {
+    group "version Tasks"
+    this.project.ext.currentVersion("")
 }
