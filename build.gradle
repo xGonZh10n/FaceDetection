@@ -2,6 +2,10 @@ buildscript {
     ext {
         agp_gradle = '7.0.4'
         android_gradle_plugin_version = agp_gradle
+        kotlin_version = "1.7.20"
+        // coroutine
+        coroutine_version = "1.6.0"
+        kotlin_coroutines_version = coroutine_version
     }
     repositories {
         gradlePluginPortal()
@@ -11,6 +15,7 @@ buildscript {
     }
     dependencies {
         classpath "com.android.tools.build:gradle:$agp_gradle"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
@@ -18,6 +23,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        mavenCentral()
     }
 }
 
