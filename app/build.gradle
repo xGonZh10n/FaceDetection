@@ -26,5 +26,6 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation project(path: ':opencv_face_detect')
+    implementation project(path: ':opencv_face_detect')//local
+    implementation 'com.github.xGonZh10n:opencv_face_detect:0.0.1'//maven repo : github or mavenLocal or mavenCentral or nexus
 }
