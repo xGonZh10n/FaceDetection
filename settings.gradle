@@ -1,1 +1,2 @@
 include ':app'
+include ':opencv_face_detect'
