@@ -1,5 +1,9 @@
+
+
 # FaceDetection
 Face detection on Android using dlib and opencv.
+
+The app requires the CAMERA permission.
 
 ## Prerequisites
 - Android Studio
